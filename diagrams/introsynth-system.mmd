@@ -1,0 +1,29 @@
+﻿flowchart LR
+    A[User Inputs Resume + Goals] --> B[Resume Parser + Normalizer]
+    C[Job Sources + User Saved Jobs] --> D[Job Ingest + Structuring]
+
+    B --> E[Profile Vector Store]
+    D --> F[Role Requirement Store]
+
+    E --> G[Fit Scoring Engine]
+    F --> G
+
+    G --> H[Gap Analysis + Priority Actions]
+    G --> I[Referral Discovery Module]
+
+    H --> J[Outreach Prompt Builder]
+    I --> J
+
+    J --> K[LLM Outreach Generation]
+    K --> L[User Review + Edit + Send]
+
+    L --> M[Outcome Capture: reply, interview, conversion]
+    M --> N[Learning Loop: prompt tuning + ranking updates]
+    N --> G
+    N --> J
+
+    O[Instrumentation Layer] --> B
+    O --> D
+    O --> G
+    O --> L
+    O --> M

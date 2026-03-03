@@ -1,0 +1,26 @@
+﻿flowchart TD
+    A[User Location + Map Viewport] --> B[Geo Context Service]
+    C[Election Results Dataset] --> D[Political Signal Processor]
+    E[Demographic/Civic Context] --> D
+    F[User Ideology Preferences] --> G[User Ideology Vector]
+
+    B --> H[Location Join Engine]
+    D --> H
+    G --> I[Similarity Scoring Engine]
+    H --> I
+
+    I --> J[Similarity Band + Confidence Score]
+    I --> K[Explanatory Factors Layer]
+
+    J --> L[Map Overlay UI]
+    K --> M[Detail Drawer: Why This Score]
+
+    L --> N[User Interaction Events]
+    M --> N
+
+    N --> O[Analytics + Experimentation Layer]
+    O --> P[Threshold/Weight Tuning]
+    P --> I
+
+    Q[Risk Guardrails: privacy, interpretation, bias checks] --> L
+    Q --> M
